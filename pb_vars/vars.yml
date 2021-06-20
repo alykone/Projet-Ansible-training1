@@ -1,0 +1,10 @@
+---
+user_group_name1: devops
+user_group_name2: webapp
+user_name1: abecker
+user_name2: balvez
+user_name3: cdexter
+user_group: users
+# user_groups: devops,webapp
+user_shell: /bin/bash
+user_password: 

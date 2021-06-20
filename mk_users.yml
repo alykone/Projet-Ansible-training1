@@ -1,0 +1,45 @@
+---
+- name: Creation des utilisateurs
+  hosts: integration
+  vars_files: pb_vars/extern_vars.yml
+
+  tasks:
+    - name: Ceration du groupe devops
+      group:
+        name: devops
+        state: present
+   
+    - name: Creation du groupe webapp
+      group:
+        name: webapp
+        state: present
+
+    - name: Creation de l'utilsateur abecker
+      user:
+        name: abecker
+        comment: Alan Becker
+        group: users
+        groups: devops,webapp
+        append: yes
+        shell: /bin/bash
+        password: "{{ pwd_abecker }}"
+
+    - name: Creation de l'utilsateur balvez
+      user:
+        name: balvez
+        comment: Betty Alvez
+        group: users
+        groups: devops,webapp
+        append: yes
+        shell: /bin/bash
+        password: "{{ pwd_balvez }}"
+
+    - name: Creation de l'utilsateur cdexter
+      user:
+        name: cdexter
+        comment: Charlie Dexter
+        group: users
+        groups: devops,webapp
+        append: yes
+        shell: /bin/bash
+        password: "{{ pwd_cdexter }}"
